@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portofolio Interaktif — SaaSchet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Custom Cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+
+  <!-- Theme Toggle -->
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
+    <span class="theme-icon" id="themeIcon">🌙</span>
+  </button>
+
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-brand">
+      <span class="brand-text">&lt;SaaSchet/&gt;</span>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#hero" class="nav-link">Beranda</a></li>
+      <li><a href="#about" class="nav-link">Tentang</a></li>
+      <li><a href="#projects" class="nav-link">Karya</a></li>
+      <li><a href="#skills" class="nav-link">Skill</a></li>
+      <li><a href="#contact" class="nav-link">Kontak</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="parallax-bg" id="parallaxBg">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="shape shape-3"></div>
+    </div>
+    <div class="hero-content">
+      <p class="hero-greeting">Halo, saya</p>
+      <h1 class="hero-title">
+        <span class="typing-text" id="typingText"></span><span class="typing-cursor">|</span>
+      </h1>
+      <p class="hero-subtitle">Software Engineer · UI/UX Enthusiast · Open Source Contributor</p>
+      <div class="hero-cta">
+        <a href="#projects" class="btn btn-primary">Lihat Karya</a>
+        <a href="#contact" class="btn btn-outline">Hubungi Saya</a>
+      </div>
+      <div class="scroll-indicator">
+        <div class="mouse">
+          <div class="wheel"></div>
+        </div>
+        <p>Scroll ke bawah</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about section" id="about">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Tentang Saya</span>
+        <h2 class="section-title">Cerita Singkat</h2>
+      </div>
+      <div class="about-content">
+        <div class="about-image reveal">
+          <div class="image-frame">
+            <div class="image-placeholder">
+              <span class="avatar-emoji">👨‍💻</span>
+            </div>
+            <div class="image-dots"></div>
+          </div>
+        </div>
+        <div class="about-text reveal">
+          <p>Saya adalah software engineer yang passionate menciptakan pengalaman digital interaktif. Dari frontend yang halus hingga sistem backend yang skalabel, saya suka membangun produk yang berguna dan menyenangkan.</p>
+          <p>Ketika tidak coding, saya menulis teknis, berkontribusi open-source, dan bereksperimen dengan teknologi baru seperti WebGL dan AI.</p>
+          <div class="about-stats">
+            <div class="stat">
+              <span class="stat-number" data-count="5">0</span>
+              <span class="stat-label">Tahun Pengalaman</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number" data-count="42">0</span>
+              <span class="stat-label">Proyek Selesai</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number" data-count="18">0</span>
+              <span class="stat-label">Open Source</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section class="projects section" id="projects">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Portfolio</span>
+        <h2 class="section-title">Karya Terbaru</h2>
+      </div>
+      <div class="filter-tabs reveal">
+        <button class="filter-btn active" data-filter="all">Semua</button>
+        <button class="filter-btn" data-filter="web">Web</button>
+        <button class="filter-btn" data-filter="mobile">Mobile</button>
+        <button class="filter-btn" data-filter="design">Design</button>
+      </div>
+      <div class="projects-grid" id="projectsGrid">
+        <article class="project-card reveal" data-category="web">
+          <div class="project-image">
+            <div class="project-gradient bg-1"></div>
+            <div class="project-overlay">
+              <a href="#" class="project-link" aria-label="Lihat detail">↗</a>
+            </div>
+          </div>
+          <div class="project-info">
+            <h3>E-Commerce Dashboard</h3>
+            <p>Dashboard analitik real-time dengan visualisasi data interaktif dan dark mode otomatis.</p>
+            <div class="project-tags">
+              <span>React</span><span>D3.js</span><span>Tailwind</span>
+            </div>
+          </div>
+        </article>
+        <article class="project-card reveal" data-category="mobile">
+          <div class="project-image">
+            <div class="project-gradient bg-2"></div>
+            <div class="project-overlay">
+              <a href="#" class="project-link" aria-label="Lihat detail">↗</a>
+            </div>
+          </div>
+          <div class="project-info">
+            <h3>Fitness Tracker App</h3>
+            <p>Aplikasi pelacak aktivitas harian dengan notifikasi pintar dan integrasi smartwatch.</p>
+            <div class="project-tags">
+              <span>React Native</span><span>Firebase</span><span>Redux</span>
+            </div>
+          </div>
+        </article>
+        <article class="project-card reveal" data-category="design">
+          <div class="project-image">
+            <div class="project-gradient bg-3"></div>
+            <div class="project-overlay">
+              <a href="#" class="project-link" aria-label="Lihat detail">↗</a>
+            </div>
+          </div>
+          <div class="project-info">
+            <h3>Design System</h3>
+            <p>Komponen UI yang dapat digunakan ulang, token desain, dan dokumentasi lengkap.</p>
+            <div class="project-tags">
+              <span>Figma</span><span>Storybook</span><span>CSS</span>
+            </div>
+          </div>
+        </article>
+        <article class="project-card reveal" data-category="web">
+          <div class="project-image">
+            <div class="project-gradient bg-4"></div>
+            <div class="project-overlay">
+              <a href="#" class="project-link" aria-label="Lihat detail">↗</a>
+            </div>
+          </div>
+          <div class="project-info">
+            <h3>AI Writing Assistant</h3>
+            <p>Editor teks dengan AI autocomplete, grammar checker, dan tone adjuster.</p>
+            <div class="project-tags">
+              <span>Next.js</span><span>OpenAI</span><span>Prisma</span>
+            </div>
+          </div>
+        </article>
+        <article class="project-card reveal" data-category="web">
+          <div class="project-image">
+            <div class="project-gradient bg-5"></div>
+            <div class="project-overlay">
+              <a href="#" class="project-link" aria-label="Lihat detail">↗</a>
+            </div>
+          </div>
+          <div class="project-info">
+            <h3>Real-time Collaboration</h3>
+            <p>Platform whiteboard kolaboratif mirip Figma dengan WebSocket dan CRDT.</p>
+            <div class="project-tags">
+              <span>Vue</span><span>WebSocket</span><span>Canvas API</span>
+            </div>
+          </div>
+        </article>
+        <article class="project-card reveal" data-category="mobile">
+          <div class="project-image">
+            <div class="project-gradient bg-6"></div>
+            <div class="project-overlay">
+              <a href="#" class="project-link" aria-label="Lihat detail">↗</a>
+            </div>
+          </div>
+          <div class="project-info">
+            <h3>AR Navigation</h3>
+            <p>Aplikasi navigasi outdoor dengan augmented reality dan geolocation.</p>
+            <div class="project-tags">
+              <span>Flutter</span><span>ARKit</span><span>Maps API</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section class="skills section" id="skills">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Kemampuan</span>
+        <h2 class="section-title">Tech Stack</h2>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-category reveal">
+          <h3>Frontend</h3>
+          <div class="skill-items">
+            <div class="skill-item"><span class="skill-dot"></span>JavaScript / TypeScript</div>
+            <div class="skill-item"><span class="skill-dot"></span>React / Next.js</div>
+            <div class="skill-item"><span class="skill-dot"></span>Vue / Nuxt</div>
+            <div class="skill-item"><span class="skill-dot"></span>Tailwind / SCSS</div>
+            <div class="skill-item"><span class="skill-dot"></span>Three.js / WebGL</div>
+          </div>
+        </div>
+        <div class="skill-category reveal">
+          <h3>Backend</h3>
+          <div class="skill-items">
+            <div class="skill-item"><span class="skill-dot"></span>Node.js / Deno</div>
+            <div class="skill-item"><span class="skill-dot"></span>PostgreSQL / MongoDB</div>
+            <div class="skill-item"><span class="skill-dot"></span>GraphQL / REST</div>
+            <div class="skill-item"><span class="skill-dot"></span>Docker / K8s</div>
+            <div class="skill-item"><span class="skill-dot"></span>AWS / GCP</div>
+          </div>
+        </div>
+        <div class="skill-category reveal">
+          <h3>Tools & Design</h3>
+          <div class="skill-items">
+            <div class="skill-item"><span class="skill-dot"></span>Figma / Framer</div>
+            <div class="skill-item"><span class="skill-dot"></span>Git / GitHub Actions</div>
+            <div class="skill-item"><span class="skill-dot"></span>Jest / Cypress</div>
+            <div class="skill-item"><span class="skill-dot"></span>AI / LLM APIs</div>
+            <div class="skill-item"><span class="skill-dot"></span>CI/CD Pipelines</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mini Easter Egg: Music Visualizer -->
+      <div class="visualizer-section reveal">
+        <p class="visualizer-hint">🎵 Klik di mana saja untuk memicu visualizer</p>
+        <canvas id="visualizer" width="800" height="120"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact section" id="contact">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Kontak</span>
+        <h2 class="section-title">Mari Berkolaborasi</h2>
+      </div>
+      <div class="contact-content">
+        <div class="contact-form-wrapper reveal">
+          <form class="contact-form" id="contactForm" novalidate>
+            <div class="form-group">
+              <label for="name">Nama</label>
+              <input type="text" id="name" name="name" placeholder="Nama Anda" required />
+              <span class="error-msg" id="nameError"></span>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="nama@email.com" required />
+              <span class="error-msg" id="emailError"></span>
+            </div>
+            <div class="form-group">
+              <label for="message">Pesan</label>
+              <textarea id="message" name="message" rows="5" placeholder="Ceritakan proyek Anda..." required></textarea>
+              <span class="error-msg" id="messageError"></span>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full" id="submitBtn">
+              <span class="btn-text">Kirim Pesan</span>
+              <span class="btn-loader" hidden></span>
+            </button>
+            <p class="form-status" id="formStatus"></p>
+          </form>
+        </div>
+        <div class="contact-links reveal">
+          <div class="contact-card">
+            <span class="contact-icon">📧</span>
+            <a href="mailto:hello@saaschet.dev">hello@saaschet.dev</a>
+          </div>
+          <div class="contact-card">
+            <span class="contact-icon">🐙</span>
+            <a href="https://github.com/saaschet" target="_blank" rel="noopener">github.com/saaschet</a>
+          </div>
+          <div class="contact-card">
+            <span class="contact-icon">💼</span>
+            <a href="https://linkedin.com/in/saaschet" target="_blank" rel="noopener">linkedin.com/in/saaschet</a>
+          </div>
+          <div class="contact-card">
+            <span class="contact-icon">🐦</span>
+            <a href="https://twitter.com/saaschet" target="_blank" rel="noopener">@saaschet</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>Dibuat dengan <span class="heart">❤</span> oleh SaaSchet &middot; <span id="year"></span></p>
+      <p class="footer-small">Tekan <kbd>Space</kbd> untuk easter egg</p>
+    </div>
+  </footer>
+
+  <!-- Easter Egg Overlay -->
+  <div class="easter-egg" id="easterEgg">
+    <div class="easter-content">
+      <h2>🎉 You found the easter egg!</h2>
+      <p>Terima kasih sudah eksplorasi portofolio ini sampai akhir.</p>
+      <button class="btn btn-primary" id="closeEaster">Tutup</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
