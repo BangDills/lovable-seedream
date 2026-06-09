@@ -22,7 +22,7 @@ Website portofolio pribadi yang interaktif, responsif, dan modern. Dibangun deng
 
 ---
 
-## 🚀 Cara Menjalankan
+## 🚀 Cara Menjalankan Lokal
 
 Tidak perlu build tools atau install dependencies. Cukup clone dan buka file HTML:
 
@@ -53,6 +53,7 @@ Lalu buka `http://localhost:8080`
 ├── index.html      # Markup utama & struktur halaman
 ├── styles.css      # Styling modern dengan CSS Variables
 ├── script.js       # Semua interaktivitas & animasi
+├── .nojekyll       # Mencegah Jekyll processing (untuk GitHub Pages)
 └── README.md       # Dokumentasi ini
 ```
 
@@ -80,23 +81,113 @@ Tidak ada framework eksternal sehingga:
 
 ---
 
-## 📄 Deployment
+## 🚀 Deploy ke GitHub Pages (Rekomendasi)
 
-### GitHub Pages
-1. Push repo ke GitHub
-2. Buka **Settings → Pages**
-3. Pilih branch `main`, folder `/ (root)`
-4. Tunggu beberapa detik, lalu akses URL yang diberikan
+### Langkah 1: Upload ke GitHub
 
-### Vercel / Netlify
-1. Login ke platform pilihan
-2. Import repository ini
-3. Deploy (default settings sudah cocok untuk static site)
+Kalau repo ini baru (belum ada di GitHub), buat dulu repository baru:
+
+```bash
+# Inisialisasi repo lokal (skip jika sudah)
+git init
+
+# Tambahkan semua file
+git add .
+
+# Commit
+git commit -m "initial: portfolio website"
+
+# Hubungkan ke remote GitHub (ganti <username> dengan username kamu)
+git remote add origin https://github.com/<username>/portofolio-web.git
+
+# Push ke GitHub
+git branch -M main
+git push -u origin main
+```
+
+### Langkah 2: Aktifkan GitHub Pages
+
+1. Buka repo di GitHub → klik tab **Settings**
+2. Di sidebar kiri, klik **Pages**
+3. Di bagian **Source**, pilih **Deploy from a branch**
+4. Pilih branch `main` dan folder `/(root)`, lalu klik **Save**
+5. Tunggu 1–2 menit, lalu refresh halaman Settings → Pages
+6. URL live akan muncul: `https://<username>.github.io/portofolio-web/`
+
+### Langkah 3: (Opsional) Gunakan GitHub Actions
+
+Kalau mau auto-deploy tiap push, buat file baru:
+
+`.github/workflows/deploy.yml`
+
+```yaml
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+```
+
+Push file ini, lalu aktifkan **Actions** di tab Actions → set permission-nya.
+
+### ⚠️ Perhatian: Routing Issue (SPA)
+
+Karena ini single-page app, jika pengunjung langsung membuka deep link (misal `/#about`) lalu refresh, mungkin muncul **404**. Solusi:
+
+**Solusi 1: Hash Routing (sudah terpasang)** — Navigasi menggunakan hash (`#about`, `#projects`), jadi semua route tetap satu halaman. ✓
+
+**Solusi 2: Copy `index.html` ke `404.html`** (jika pakai GitHub Actions):
+
+Tambahkan step di workflow sebelum upload:
+
+```yaml
+      - name: Setup 404 fallback
+        run: cp index.html 404.html
+```
 
 ---
 
-## 📝 Catatan
+## 🌍 Deploy ke Platform Lain
 
+| Platform | Cara |
+|----------|------|
+| **Vercel** | Login → Import repo → Deploy (framework preset: **Other**) |
+| **Netlify** | Login → Drag & drop folder / Import from Git |
+| **Cloudflare Pages** | Upload via dashboard atau connect ke GitHub |
+
+---
+
+## 📝 Catatan Penting
+
+- File **`.nojekyll`** penting untuk GitHub Pages — mencegah Jekyll processing sehingga file statis terkirim apa adanya. Tanpa ini, file/folder awalan underscore (`_`) atau tanpa front matter mungkin di-skip.
 - Kursor kustom otomatis **disembunyikan** pada perangkat touch (mobile/tablet) untuk UX yang lebih baik.
 - Data formulir kontak saat ini **simulasi frontend** saja. Untuk production, sambungkan ke backend/API seperti Formspree, Getform, atau serverless function.
 
