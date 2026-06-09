@@ -14,7 +14,7 @@ Website portofolio pribadi yang interaktif, responsif, dan modern. Dibangun deng
 | ⌨️ **Typing Effect** | Teks hero diketik otomatis (loop berbagai frasa) |
 | 🔍 **Filter Proyek** | Filter karya berdasarkan kategori (Web / Mobile / Design) |
 | 🎵 **Music Visualizer** | Canvas visualizer yang bereaksi saat klik di mana saja |
-| 📊 **Counter Animasi** | Anggal statistik dianimasi saat masuk viewport |
+| 📊 **Counter Animasi** | Angka statistik dianimasi saat masuk viewport |
 | 🌀 **Parallax Background** | Background shape bergerak mengikuti scroll |
 | 🎉 **Easter Egg** | Tekan tombol `Space` untuk kejutan! |
 | 📱 **Responsive** | Optimized untuk mobile, tablet, dan desktop |
@@ -53,6 +53,7 @@ Lalu buka `http://localhost:8080`
 ├── index.html      # Markup utama & struktur halaman
 ├── styles.css      # Styling modern dengan CSS Variables
 ├── script.js       # Semua interaktivitas & animasi
+├── .nojekyll       # Mencegah Jekyll processing di GitHub Pages
 └── README.md       # Dokumentasi ini
 ```
 
@@ -82,13 +83,19 @@ Tidak ada framework eksternal sehingga:
 
 ## 📄 Deployment
 
-### GitHub Pages
-1. Push repo ke GitHub
-2. Buka **Settings → Pages**
-3. Pilih branch `main`, folder `/ (root)`
-4. Tunggu beberapa detik, lalu akses URL yang diberikan
+### GitHub Pages (direkomendasikan)
+
+1. **Merge** PR ini ke branch `main`
+2. Buka repo di GitHub → **Settings** → **Pages**
+3. Pada **Source**, pilih **Deploy from a branch**
+4. Pilih **Branch**: `main`, **Folder**: `/ (root)`
+5. Klik **Save**
+6. Tunggu 1-2 menit, lalu akses `https://<username>.github.io/<repo-name>/`
+
+> File `.nojekyll` sudah disertakan agar GitHub Pages tidak memproses Jekyll dan file `_` tetap terbaca.
 
 ### Vercel / Netlify
+
 1. Login ke platform pilihan
 2. Import repository ini
 3. Deploy (default settings sudah cocok untuk static site)
